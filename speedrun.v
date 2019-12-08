@@ -59,7 +59,7 @@ struct SpeedrunResponse {
 
 pub struct Run {
 	_date string [json:'date']
-	_submitted [json:'submitted']
+	_submitted string [json:'submitted']
 pub:
 	id string
 	links []Link
