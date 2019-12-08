@@ -59,9 +59,9 @@ struct SpeedrunResponse {
 
 pub struct Run {
 	_date string [json:'date']
+	_submitted [json:'submitted']
 pub:
 	id string
-	submitted string
 	links []Link
 	videos Videos
 	comment string
@@ -74,6 +74,7 @@ pub:
 mut:
 	status VerifyStatus
 	date time.Time
+	submitted time.Time
 }
 
 pub struct Times {
@@ -945,7 +946,17 @@ fn process_run(_run Run) Run {
 				.replace("T", " ")
 				.replace("Z", "")
 		)
+	} else {
+		run.status.verify_date = time.unix(0)
 	}
+	if run._submitted != "" {
+		run.submitted = time.parse(
+			run._submitted
+				.replace("T", " ")
+				.replace("Z", "")
+		)
+	} else {
+		run.submitted = time.unix(0)
 	if run.status.status == "verified" {
 		run.status.verified = true
 	}
