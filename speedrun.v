@@ -145,7 +145,7 @@ pub:
 	 */
 	_created string [json:'created']
 	_release_date string [json:'release-date']
-pub mut:
+pub:
 	release_date time.Time
 	created time.Time
 }
