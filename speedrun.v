@@ -939,6 +939,8 @@ fn process_run(_run Run) Run {
 	mut run := _run
 	if run._date != "" {
 		run.date = parse_time(run._date + " 00:00:00")
+	} else {
+		run.date = time.unix(0)
 	}
 	if run.status._verify_date != "" {
 		run.status.verify_date = parse_time(
