@@ -3,7 +3,7 @@ This module contains functions for reading main data from speedrun.com.
 
 
 ## Installation
-`v install speedrun`
+`v install iaiao.speedrun`
 
 ## Usage
 Documentation generated with `v doc` - in [Doc.md](Doc.md)
