@@ -57,7 +57,7 @@ struct SpeedrunResponse {
 	data string [raw]
 }
 
-struct Run {
+pub struct Run {
 	_date string [json:'date']
 pub:
 	id string
@@ -76,7 +76,7 @@ mut:
 	date time.Time
 }
 
-struct Times {
+pub struct Times {
 pub:
 	primary string
 	primary_t f64
@@ -95,24 +95,24 @@ pub:
 	region string
 }
 
-struct Link {
+pub struct Link {
 pub:
 	rel string
 	uri string
 }
 
-struct ID {
+pub struct ID {
 pub:
 	rel string
 	id string
 }
 
-struct Videos {
+pub struct Videos {
 pub:
 	links []string
 }
 
-struct VerifyStatus {
+pub struct VerifyStatus {
 	_verify_date string [json:'verify-date']
 pub:
 	status string
@@ -122,7 +122,7 @@ mut:
 	verify_date time.Time
 }
 
-struct Game {
+pub struct Game {
 pub:
 	id string
 	names Names
@@ -145,7 +145,7 @@ pub:
 	 */
 	_created string [json:'created']
 	_release_date string [json:'release-date']
-mut:
+pub mut:
 	release_date time.Time
 	created time.Time
 }
@@ -171,7 +171,7 @@ mut:
 //   height int
 // }
 
-struct RuleSet {
+pub struct RuleSet {
 pub:
 	show_milliseconds bool [json:'show-milliseconds']
 	require_verification bool [json:'require-verification']
@@ -181,14 +181,14 @@ pub:
 	emulators_allowed bool [json:'emulators-allowed']
 }
 
-struct Names {
+pub struct Names {
 pub:
 	international string
 	japanese string
 	twitch string
 }
 
-struct Level {
+pub struct Level {
 pub:
 	id string
 	name string
@@ -196,7 +196,7 @@ pub:
 	links []Link
 }
 
-struct Category {
+pub struct Category {
 pub:
 	id string
 	name string
@@ -207,7 +207,7 @@ pub:
 	links []Link
 }
 
-struct Leaderboard {
+pub struct Leaderboard {
 pub:
 	game_id string [json:'game']
 	category_id string [json:'category']
@@ -221,19 +221,19 @@ pub:
 	runs []Place
 }
 
-struct Place {
+pub struct Place {
 pub:
 	place int
 	run Run
 }
 
-struct PlayerRule {
+pub struct PlayerRule {
 pub:
 	category_type string [json:'type']
 	value int
 }
 
-struct User {
+pub struct User {
 	_signup string [json:'signup']
 pub:
 	id string
@@ -245,45 +245,45 @@ mut:
 	signup time.Time
 }
 
-struct Location {
+pub struct Location {
 pub:
 	country Country
 }
 
-struct Country {
+pub struct Country {
 pub:
 	code string
 	names Names
 }
 
-struct NameStyle {
+pub struct NameStyle {
 pub:
 	style string
 	color_from Color [json:'color-from']
 	color_to Color [json:'color-to']
 }
 
-struct Color {
+pub struct Color {
 pub:
 	light string
 	dark string
 }
 
-struct Developer {
+pub struct Developer {
 pub:
 	id string
 	name string
 	links []Link
 }
 
-struct Engine {
+pub struct Engine {
 pub:
 	id string
 	name string
 	links []Link
 }
 
-struct GameType {
+pub struct GameType {
 pub:
 	id string
 	name string
