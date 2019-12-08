@@ -1,5 +1,5 @@
 # A simple REST API wrapper for [Speedrun.com](https://speedrun.com) written in [V](https://github.com/vlang/v)
-This package contains functions for reading main data from speedrun.com.
+This module contains functions for reading main data from speedrun.com.
 
 
 ## Install
