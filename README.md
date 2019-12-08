@@ -1,4 +1,4 @@
-# A simple REST API wrapper for [Speedrun.com](https://speedrun.com) written in [V](https://github.com/vlang/v)
+# A simple wrapper for [Speedrun.com](https://speedrun.com) REST API written in [V](https://github.com/vlang/v)
 This module contains functions for reading main data from speedrun.com.
 
 
