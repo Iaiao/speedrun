@@ -228,6 +228,7 @@ pub:
 }
 
 struct PlayerRule {
+pub:
 	category_type string [json:'type']
 	value int
 }
