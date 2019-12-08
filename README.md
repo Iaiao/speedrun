@@ -2,16 +2,16 @@
 This module contains functions for reading main data from speedrun.com.
 
 
-## Install
+## Installation
 `v install speedrun`
 
-## Doc
-`v doc speedrun`
+## Usage
+Documentation generated with `v doc` - in [Doc.md](Doc.md)
 
-## Example
+### Example
 Print all registered runners (skipping guests) of first 500 Minecraft runs:
 ```v
-import speedrun
+import iaiao.speedrun
 
 fn main() {
     minecraft := speedrun.search_game("mc")?
