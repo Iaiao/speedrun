@@ -681,6 +681,8 @@ pub fn search_developer(name string) ?Developer {
 		if devs.len < 200 {
 			return error("Developer $name not found")
 		}
+		
+		offset += 200
 	}
 	return error("Developer $name not found")
 }
@@ -747,7 +749,7 @@ pub fn (user User) runs(_count, offset int) ?[]Run {
 	res := get(url) or {
 		return error(err)
 	}
-	mut response := json.decode([]Run, res) or {
+	response := json.decode([]Run, res) or {
 		return error(err)
 	}
 
