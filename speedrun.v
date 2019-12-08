@@ -957,6 +957,7 @@ fn process_run(_run Run) Run {
 		)
 	} else {
 		run.submitted = time.unix(0)
+	}
 	if run.status.status == "verified" {
 		run.status.verified = true
 	}
