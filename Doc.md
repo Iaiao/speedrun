@@ -1,3 +1,8 @@
+# Import module
+```v
+import iaiao.speedrun
+```
+
 # Doc generated with `v doc`
 Private functions and structs hidden
 
