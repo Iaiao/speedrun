@@ -916,18 +916,18 @@ fn get(url string) ?string {
 
 fn process_game(_game Game) Game {
 	mut game := _game
-	game.created = parse_time(
+	game.created = time.parse(
 		game._created
 			.replace("T", " ")
 			.replace("Z", "")
 	)
-	game.release_date = parse_time(game._release_date + " 00:00:00")
+	game.release_date = time.parse(game._release_date + " 00:00:00")
 	return game
 }
 
 fn process_user(_user User) User {
 	mut user := _user
-	user.signup = parse_time(
+	user.signup = time.parse(
 		user._signup
 			.replace("T", " ")
 			.replace("Z", "")
@@ -938,12 +938,12 @@ fn process_user(_user User) User {
 fn process_run(_run Run) Run {
 	mut run := _run
 	if run._date != "" {
-		run.date = parse_time(run._date + " 00:00:00")
+		run.date = time.parse(run._date + " 00:00:00")
 	} else {
 		run.date = time.unix(0)
 	}
 	if run.status._verify_date != "" {
-		run.status.verify_date = parse_time(
+		run.status.verify_date = time.parse(
 			run.status._verify_date
 				.replace("T", " ")
 				.replace("Z", "")
@@ -952,7 +952,7 @@ fn process_run(_run Run) Run {
 		run.status.verify_date = time.unix(0)
 	}
 	if run._submitted != "" {
-		run.submitted = parse_time(
+		run.submitted = time.parse(
 			run._submitted
 				.replace("T", " ")
 				.replace("Z", "")
@@ -964,34 +964,4 @@ fn process_run(_run Run) Run {
 		run.status.verified = true
 	}
 	return run
-}
-
-// temporary functions fixing "08".int() == 0
-// because it affects time.parse and output time is invalid
-fn parse_time(s string) time.Time {
-	pos := s.index(" ") or {
-		println('bad time format')
-		return time.now()
-	}
-	symd := s[..pos]
-	ymd := symd.split("-")
-	if ymd.len != 3 {
-		println('bad time format')
-		return time.now()
-	}
-	shms := s[pos+1..]
-	hms := shms.split(":")
-
-	return time.new_time(time.Time {
-		year: ymd[0].int()
-		month: parse_int(ymd[1])
-		day: parse_int(ymd[2])
-		hour: parse_int(hms[0])
-		minute: parse_int(hms[1])
-		second: parse_int(hms[2])
-	})
-}
-
-fn parse_int(s string) int {
-	return if s[0] == `0` { s[1].str().int() } else { s.int() }
 }
