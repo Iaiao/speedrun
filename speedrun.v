@@ -110,7 +110,7 @@ pub:
 
 pub struct Videos {
 pub:
-	links []string
+	links []Link
 }
 
 pub struct VerifyStatus {
